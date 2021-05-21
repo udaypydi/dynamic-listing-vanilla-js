@@ -18,19 +18,17 @@ class Mailer {
         })
     }
 
+
     createMailerList = () => {
         
         this.mailerData.forEach((data) => {
             const mailerCard = document.createElement('div');
-            mailerCard.classList.add('mailer-card');
-            
-            // create mail subject
-
-            const headerText = document.createElement('p');
-            headerText.innerText = data.title;
-            headerText.classList.add('mailer-card-title');
-            
-            mailerCard.append(headerText);
+            const card = `
+                <div class="mailer-card">
+                    <h1 class="mailer-card-title">${data?.title}</h1>
+                </div>
+            `;
+            mailerCard.innerHTML = card;
             this.sideBarContainer.append(mailerCard);
         })
     }
